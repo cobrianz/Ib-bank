@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
-
+import logo from '../../assets/ib-brand-logo-with-name.png';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,35 +41,22 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-header brand-transition ${
-        isScrolled 
-          ? 'glassmorphic shadow-brand-lg' 
-          : 'bg-background/80 backdrop-blur-subtle'
+    <header
+      className={`fixed top-2 left-0 right-0 z-header brand-transition ${
+        isScrolled
+          ? "glassmorphic shadow-brand-lg"
+          : "bg-background/80 backdrop-blur-subtle"
       }`}
     >
       <div className="w-full">
         <div className="flex items-center justify-between h-16 px-4 lg:px-6">
           {/* Logo */}
-          <Link 
-            to="/homepage" 
+          <Link
+            to="/homepage"
             className="flex items-center space-x-3 brand-transition brand-hover-scale"
             onClick={closeMobileMenu}
           >
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-ib-green to-ib-accent rounded-lg flex items-center justify-center shadow-brand">
-                <span className="text-white font-heading font-bold text-lg">IB</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-success rounded-full animate-pulse-subtle"></div>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-brand-heading text-lg font-bold text-gradient-brand">
-                IB Liberia Digital
-              </h1>
-              <p className="text-xs text-muted-foreground font-medium">
-                Transparent Innovation Banking
-              </p>
-            </div>
+            <img src={logo} alt="" className="w-[12rem] py-2 px-2 " />
           </Link>
 
           {/* Desktop Navigation */}
@@ -80,21 +67,25 @@ const Header = () => {
                 to={item.path}
                 className={`px-4 py-2 rounded-brand text-sm font-medium brand-transition ${
                   location.pathname === item.path
-                    ? 'bg-primary text-primary-foreground shadow-brand'
-                    : 'text-foreground hover:bg-muted hover:text-accent-foreground'
+                    ? "bg-primary text-primary-foreground shadow-brand"
+                    : "text-foreground hover:bg-muted hover:text-accent-foreground"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            
+
             {/* More Dropdown */}
             <div className="relative group">
               <button className="flex items-center px-4 py-2 rounded-brand text-sm font-medium text-foreground hover:bg-muted hover:text-accent-foreground brand-transition">
                 More
-                <Icon name="ChevronDown" size={16} className="ml-1 group-hover:rotate-180 brand-transition" />
+                <Icon
+                  name="ChevronDown"
+                  size={16}
+                  className="ml-1 group-hover:rotate-180 brand-transition"
+                />
               </button>
-              
+
               <div className="absolute right-0 top-full mt-2 w-48 glassmorphic rounded-brand-lg shadow-brand-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible brand-transition z-50">
                 <div className="py-2">
                   {moreItems.map((item) => (
@@ -113,8 +104,8 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               iconName="Phone"
               iconPosition="left"
@@ -122,8 +113,8 @@ const Header = () => {
             >
               Contact
             </Button>
-            <Button 
-              variant="default" 
+            <Button
+              variant="default"
               size="sm"
               className="conversion-cta"
               iconName="UserPlus"
@@ -140,9 +131,9 @@ const Header = () => {
             className="lg:hidden p-2 rounded-brand text-foreground hover:bg-muted brand-transition thumb-friendly"
             aria-label="Toggle mobile menu"
           >
-            <Icon 
-              name={isMobileMenuOpen ? "X" : "Menu"} 
-              size={24} 
+            <Icon
+              name={isMobileMenuOpen ? "X" : "Menu"}
+              size={24}
               className="brand-transition"
             />
           </button>
@@ -172,10 +163,11 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
+      <div
         className={`lg:hidden glassmorphic border-t border-border/50 brand-transition ${
-          isMobileMenuOpen 
-            ? 'opacity-100 visible max-h-screen' :'opacity-0 invisible max-h-0 overflow-hidden'
+          isMobileMenuOpen
+            ? "opacity-100 visible max-h-screen"
+            : "opacity-0 invisible max-h-0 overflow-hidden"
         }`}
       >
         <div className="px-4 py-4 space-y-2">
@@ -186,14 +178,14 @@ const Header = () => {
               onClick={closeMobileMenu}
               className={`block px-4 py-3 rounded-brand text-sm font-medium brand-transition thumb-friendly ${
                 location.pathname === item.path
-                  ? 'bg-primary text-primary-foreground shadow-brand'
-                  : 'text-foreground hover:bg-muted hover:text-accent-foreground'
+                  ? "bg-primary text-primary-foreground shadow-brand"
+                  : "text-foreground hover:bg-muted hover:text-accent-foreground"
               }`}
             >
               {item.name}
             </Link>
           ))}
-          
+
           <div className="border-t border-border/50 pt-2 mt-4">
             {moreItems.map((item) => (
               <Link
@@ -206,10 +198,10 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          
+
           <div className="border-t border-border/50 pt-4 mt-4 space-y-3">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               fullWidth
               iconName="Phone"
               iconPosition="left"
@@ -218,8 +210,8 @@ const Header = () => {
             >
               Contact Us
             </Button>
-            <Button 
-              variant="default" 
+            <Button
+              variant="default"
               fullWidth
               className="conversion-cta thumb-friendly"
               iconName="UserPlus"

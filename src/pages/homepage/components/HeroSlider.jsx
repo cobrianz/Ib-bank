@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import background from "../../../assets/ib-background.jpg"
+import background2 from "../../../assets/id-bg2.jpg"
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +17,7 @@ const HeroSlider = () => {
       title: "Digital Banking Revolution",
       subtitle: "Experience the Future of Banking in Liberia",
       description: "Join thousands of satisfied customers who trust IB Liberia for secure, innovative digital banking solutions that grow with your financial needs.",
-      image: "../../../assets/ib-background.jpg",
+      image: background,
       cta: "Open Account Today",
       ctaLink: "/personal-banking-services",
       stats: { value: "50,000+", label: "Active Customers" }
@@ -35,7 +37,7 @@ const HeroSlider = () => {
       title: "Agency Banking Network",
       subtitle: "Banking Closer to Your Community",
       description: "Access banking services at over 150 agent locations nationwide. Convenient, secure, and always within reach.",
-      image: "https://images.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg?w=1200&h=600&fit=crop",
+      image: background2,
       cta: "Find Nearest Agent",
       ctaLink: "/agency-banking-network",
       stats: { value: "150+", label: "Agent Locations" }
@@ -84,7 +86,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-gradient-to-br from-ib-green via-ib-accent to-ib-dark">
+    <section className="relative h-screen min-h-[600px] overflow-hidden bg-gradient-to-br from-ib-green via-ib-accent to-ib-dark py-8 lg:py-16 top-6">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
